@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  rtmp:
+    build: ./rtmp
+    ports:
+      - "1935:1935"
+    container_name: rtmp_server
+    volumes:
+      - ./stream/hls:/hls
+  auth:
+    build: ./auth
+    container_name: auth_server
+
+  # stream:
+  #   build: ./stream
+  #   container_name: streaming_live
